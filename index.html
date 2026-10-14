@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML WORLD | Explore Machine Learning</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080d1b;
+            color: white;
+            min-height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            border-bottom: 1px solid #202b43;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #55e6ff;
+            letter-spacing: 2px;
+        }
+
+        nav span {
+            color: #b8c5df;
+            font-size: 14px;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background:
+                radial-gradient(ellipse at center,
+                #172c50 0%, #080d1b 65%);
+        }
+
+        .tag {
+            color: #55e6ff;
+            border: 1px solid #285d79;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 28px;
+        }
+
+        h1 {
+            font-size: clamp(65px, 12vw, 130px);
+            letter-spacing: 8px;
+            background: linear-gradient(
+                90deg, #ffffff, #55e6ff, #9b8cff
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 45px #55e6ff22;
+        }
+
+        h2 {
+            font-size: clamp(22px, 4vw, 34px);
+            margin-top: 8px;
+            color: #dbe7ff;
+        }
+
+        .description {
+            max-width: 620px;
+            color: #aab8d0;
+            line-height: 1.8;
+            margin: 24px 0 32px;
+            font-size: 16px;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            padding: 16px 30px;
+            border-radius: 8px;
+            background: #55e6ff;
+            color: #08111f;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .explore-btn:hover {
+            background: white;
+            transform: translateY(-4px);
+            box-shadow: 0 0 25px #55e6ff66;
+        }
+
+        .topics {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 55px;
+        }
+
+        .topic {
+            border: 1px solid #263650;
+            background: #111a2d;
+            padding: 13px 18px;
+            border-radius: 10px;
+            color: #c8d7f0;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #71819e;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 20px;
+            }
+
+            h1 {
+                letter-spacing: 3px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">ML WORLD</div>
+        <span>YOUR MACHINE LEARNING JOURNEY</span>
+        <a href="playground.html">Playground</a>
+    </nav>
+
+    <main class="hero">
+        <div class="tag">WELCOME TO THE WORLD OF AI</div>
+
+        <h1>ML</h1>
+
+        <h2>Machine Learning</h2>
+
+        <p class="description">
+            What if computers could learn from data?
+            Discover how machines recognize patterns,
+            make predictions, and solve real-world problems.
+            Your journey into Machine Learning starts here.
+        </p>
+
+        <a href="#explore" class="explore-btn">
+            Explore Machine Learning →
+        </a>
+
+        <div class="topics" id="explore">
+            <div class="topic">01 · Learn the Basics</div>
+            <div class="topic">02 · Explore Algorithms</div>
+            <div class="topic">03 · Discover AI</div>
+        </div>
+    </main>
+
+    <footer>
+        ML WORLD · LEARN. EXPLORE. DISCOVER.
+    </footer>
+
+</body>
+</html>

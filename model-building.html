@@ -1,0 +1,499 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Model Building | Machine Learning</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #07111f;
+            color: #e5edf7;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #0b192b;
+            padding: 20px 7%;
+            border-bottom: 1px solid #1e3852;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            color: #22d3ee;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #d5e4f5;
+            text-decoration: none;
+            margin: 0 7px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #22d3ee;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 75px 8% 60px;
+            background: linear-gradient(135deg, #0b192b, #102c46);
+        }
+
+        .hero h1 {
+            color: #22d3ee;
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 780px;
+            margin: auto;
+            color: #c5d5e7;
+            font-size: 17px;
+        }
+
+        .tag {
+            display: inline-block;
+            color: #22d3ee;
+            border: 1px solid #22d3ee;
+            border-radius: 25px;
+            padding: 5px 15px;
+            margin-bottom: 18px;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1200px;
+            margin: 45px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #22d3ee;
+            font-size: 29px;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #b8c8da;
+        }
+
+        .definition {
+            background: #10243a;
+            border: 1px solid #25415c;
+            border-left: 4px solid #22d3ee;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .definition h2 {
+            color: #22d3ee;
+            margin-bottom: 10px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #10243a;
+            border: 1px solid #25415c;
+            border-radius: 14px;
+            padding: 23px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #22d3ee;
+        }
+
+        .number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #22d3ee;
+            color: #07111f;
+            font-weight: bold;
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            color: #22d3ee;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #c5d5e7;
+        }
+
+        .example {
+            margin-top: 40px;
+            background: #0d2034;
+            border: 1px solid #25415c;
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .example h2 {
+            color: #22d3ee;
+            margin-bottom: 12px;
+        }
+
+        .workflow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .workflow span {
+            background: #15344c;
+            border: 1px solid #22d3ee;
+            color: #e5edf7;
+            padding: 12px 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .workflow b {
+            color: #22d3ee;
+            font-size: 22px;
+        }
+
+        .tip {
+            margin-top: 25px;
+            padding: 20px;
+            background: #10243a;
+            border-radius: 10px;
+            border-left: 4px solid #22d3ee;
+        }
+
+        .tip h3 {
+            color: #22d3ee;
+            margin-bottom: 8px;
+        }
+
+        .quiz {
+            background: #10243a;
+            border: 1px solid #25415c;
+            padding: 28px;
+            border-radius: 14px;
+            margin-top: 45px;
+        }
+
+        .quiz h2 {
+            color: #22d3ee;
+            margin-bottom: 15px;
+        }
+
+        .quiz label {
+            display: block;
+            margin: 12px 0;
+            cursor: pointer;
+        }
+
+        .quiz button {
+            background: #22d3ee;
+            color: #07111f;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        .quiz button:hover {
+            background: #67e8f9;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            background: #0b192b;
+            border-top: 1px solid #1e3852;
+            color: #9eb1c7;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">ML WORLD</div>
+
+            <div>
+                <a href="index.html">Home</a>
+                <a href="basic.html">Basics</a>
+                <a href="types.html">Types</a>
+                <a href="algorithms.html">Algorithms</a>
+                <a href="model-building.html">Model Building</a>
+                <a href="applications.html">Applications</a>
+            </div>
+            <a href="playground.html">Playground</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <span class="tag">LEARN • TRAIN • PREDICT</span>
+        <h1>Machine Learning Model Building</h1>
+        <p>
+            Learn how a Machine Learning model is created, trained,
+            tested, and used to make predictions from data.
+        </p>
+    </section>
+
+    <main class="container">
+
+        <section class="definition">
+            <h2>What Is a Machine Learning Model?</h2>
+            <p>
+                A Machine Learning model is a program that learns patterns
+                from data and uses those patterns to make predictions
+                or decisions. For example, a model can learn from past
+                house prices to estimate the price of a new house.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Steps in Model Building</h2>
+            <p class="section-intro">
+                Building a Machine Learning model involves several important
+                steps. Each step helps us create a model that can make useful
+                and reliable predictions.
+            </p>
+
+            <div class="steps">
+
+                <div class="card">
+                    <div class="number">1</div>
+                    <h3>Collect Data</h3>
+                    <p>
+                        Gather relevant information from sources such as
+                        databases, files, websites, surveys, or sensors.
+                        Example: collecting house sizes and prices.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="number">2</div>
+                    <h3>Prepare the Data</h3>
+                    <p>
+                        Clean the data by handling missing values,
+                        duplicate records, and incorrect information.
+                        Convert the data into a suitable format.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="number">3</div>
+                    <h3>Explore the Data</h3>
+                    <p>
+                        Study the data using statistics, charts, and graphs.
+                        Identify patterns, relationships, and unusual values
+                        before training the model.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="number">4</div>
+                    <h3>Choose an Algorithm</h3>
+                    <p>
+                        Select a suitable algorithm based on the problem.
+                        For example, Linear Regression can predict numerical
+                        values, while Decision Trees can classify data.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="number">5</div>
+                    <h3>Split the Data</h3>
+                    <p>
+                        Divide the data into training and testing sets.
+                        The training set teaches the model, while the
+                        testing set helps evaluate its performance.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="number">6</div>
+                    <h3>Train the Model</h3>
+                    <p>
+                        Feed the training data to the selected algorithm.
+                        The model learns patterns and relationships
+                        from the examples provided.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="number">7</div>
+                    <h3>Evaluate the Model</h3>
+                    <p>
+                        Test the model using unseen data. Use suitable
+                        measures such as accuracy, precision, recall,
+                        or mean squared error to check performance.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="number">8</div>
+                    <h3>Make Predictions</h3>
+                    <p>
+                        Use the trained model with new data to generate
+                        predictions. Monitor its performance and update
+                        it when necessary.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="example">
+            <h2>Example: Predicting House Prices</h2>
+            <p>
+                Imagine that we want to predict the price of a house.
+                We collect information about house sizes and their prices.
+                After cleaning the data, we train a suitable model.
+                The model learns the relationship between house size and
+                price and estimates the price of a new house.
+            </p>
+
+            <div class="workflow">
+                <span>Collect Data</span>
+                <b>→</b>
+                <span>Prepare Data</span>
+                <b>→</b>
+                <span>Train Model</span>
+                <b>→</b>
+                <span>Test Model</span>
+                <b>→</b>
+                <span>Predict Price</span>
+            </div>
+        </section>
+
+        <section class="tip">
+            <h3>Important Terms to Remember</h3>
+            <p>
+                <strong>Training data:</strong> Data used to teach the model.
+            </p>
+            <p>
+                <strong>Testing data:</strong> Data used to evaluate the trained model.
+            </p>
+            <p>
+                <strong>Prediction:</strong> The output produced by the model for new data.
+            </p>
+            <p>
+                <strong>Overfitting:</strong> When a model learns the training
+                data too closely and performs poorly on new data.
+            </p>
+        </section>
+
+        <section class="quiz">
+            <h2>Test Your Knowledge</h2>
+            <p><strong>Which step allows a Machine Learning model to learn patterns from data?</strong></p>
+
+            <form id="quizForm">
+                <label>
+                    <input type="radio" name="answer" value="a">
+                    A. Collecting data
+                </label>
+
+                <label>
+                    <input type="radio" name="answer" value="b">
+                    B. Training the model
+                </label>
+
+                <label>
+                    <input type="radio" name="answer" value="c">
+                    C. Displaying a website
+                </label>
+
+                <button type="button" onclick="checkAnswer()">Check Answer</button>
+                <p id="result"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Machine Learning Education Website | Learn Something New Every Day</p>
+    </footer>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.querySelector(
+                'input[name="answer"]:checked'
+            );
+            const result = document.getElementById("result");
+
+            if (!answer) {
+                result.textContent = "Please select an answer first.";
+                result.style.color = "#facc15";
+                return;
+            }
+
+            if (answer.value === "b") {
+                result.textContent = "Correct! Training helps the model learn patterns from data.";
+                result.style.color = "#4ade80";
+            } else {
+                result.textContent = "Not quite. Try again! The model learns patterns during training.";
+                result.style.color = "#fb7185";
+            }
+        }
+    </script>
+
+</body>
+</html>
+```

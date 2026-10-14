@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ML World | Algorithms</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #07111f;
+    color: #edf5ff;
+    line-height: 1.7;
+}
+
+header {
+    background: #0c1b2e;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 1px solid #294967;
+}
+
+.logo {
+    color: #54e8ff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+nav a {
+    color: #d4e5f7;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #54e8ff;
+}
+
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: radial-gradient(circle at top, #173c61, #07111f 75%);
+}
+
+.hero h1 {
+    color: #54e8ff;
+    font-size: clamp(35px, 6vw, 58px);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #c0d2e6;
+    max-width: 700px;
+    margin: auto;
+}
+
+.container {
+    width: 88%;
+    max-width: 1100px;
+    margin: 45px auto;
+}
+
+.section-title {
+    color: #54e8ff;
+    font-size: 29px;
+    margin-bottom: 22px;
+}
+
+.intro {
+    background: #102238;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 35px;
+    border-left: 4px solid #54e8ff;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #102238;
+    border: 1px solid #294967;
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #54e8ff;
+    box-shadow: 0 10px 30px #0005;
+}
+
+.symbol {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    color: #79edff;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #c0d2e6;
+    margin-bottom: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background: #183c57;
+    color: #8cecff;
+    border-radius: 20px;
+    padding: 4px 11px;
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.flow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.flow-item {
+    background: #18334d;
+    border: 1px solid #345773;
+    border-radius: 12px;
+    padding: 20px 12px;
+    text-align: center;
+}
+
+.flow-item strong {
+    color: #54e8ff;
+    display: block;
+    margin-bottom: 7px;
+}
+
+.example {
+    margin-top: 40px;
+    background: #102238;
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid #294967;
+}
+
+.example h2 {
+    color: #54e8ff;
+    margin-bottom: 12px;
+}
+
+.button {
+    display: inline-block;
+    background: #54e8ff;
+    color: #07111f;
+    padding: 11px 19px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin: 7px 5px 7px 0;
+}
+
+.button:hover {
+    background: #a1f4ff;
+}
+
+.secondary {
+    background: #18334d;
+    color: #edf5ff;
+    border: 1px solid #42627e;
+}
+
+#result {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.navigation {
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer {
+    background: #0c1b2e;
+    border-top: 1px solid #294967;
+    text-align: center;
+    padding: 25px;
+    color: #9fb5ca;
+    margin-top: 50px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 92%;
+    }
+
+    header {
+        padding: 18px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ML WORLD ✦</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="basic.html">Basics</a>
+        <a href="types.html">Types</a>
+        <a href="algorithms.html">Algorithms</a>
+        <a href="applications.html">Applications</a>
+        <a href="playground.html">Playground</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Machine Learning Algorithms</h1>
+    <p>
+        Discover the algorithms that help computers learn
+        patterns, understand data, classify information,
+        and make predictions.
+    </p>
+</section>
+
+<main class="container">
+
+    <section class="intro">
+        <h2 class="section-title">What Is an ML Algorithm?</h2>
+        <p>
+            A Machine Learning algorithm is a method that helps a
+            computer learn patterns from data. Based on these
+            patterns, the computer can make predictions or decisions
+            on new data without being explicitly programmed for
+            every situation.
+        </p>
+    </section>
+
+    <h2 class="section-title">Explore Popular Algorithms</h2>
+
+    <div class="cards">
+
+        <article class="card">
+            <div class="symbol">📈</div>
+            <h3>1. Linear Regression</h3>
+            <p>
+                Predicts a numerical value by learning the
+                relationship between input variables and an output.
+            </p>
+            <p><strong>Example:</strong> Predicting house prices from size.</p>
+            <span class="tag">Regression</span>
+        </article>
+
+        <article class="card">
+            <div class="symbol">🌳</div>
+            <h3>2. Decision Tree</h3>
+            <p>
+                Makes predictions by following questions and
+                conditions arranged like branches of a tree.
+            </p>
+            <p><strong>Example:</strong> Predicting whether a customer will leave.</p>
+            <span class="tag">Classification / Regression</span>
+        </article>
+
+        <article class="card">
+            <div class="symbol">🎯</div>
+            <h3>3. K-Means Clustering</h3>
+            <p>
+                Divides data into groups based on similarities,
+                without requiring predefined labels.
+            </p>
+            <p><strong>Example:</strong> Grouping customers by shopping habits.</p>
+            <span class="tag">Unsupervised Learning</span>
+        </article>
+
+        <article class="card">
+            <div class="symbol">🧠</div>
+            <h3>4. Neural Networks</h3>
+            <p>
+                Learn complex patterns through connected
+                computational units arranged in layers.
+            </p>
+            <p><strong>Example:</strong> Recognising objects in images.</p>
+            <span class="tag">Deep Learning</span>
+        </article>
+
+        <article class="card">
+            <div class="symbol">👥</div>
+            <h3>5. K-Nearest Neighbors</h3>
+            <p>
+                Predicts the result for new data by comparing it
+                with similar examples in the training data.
+            </p>
+            <p><strong>Example:</strong> Classifying a flower by its features.</p>
+            <span class="tag">Similarity-Based</span>
+        </article>
+
+        <article class="card">
+            <div class="symbol">📊</div>
+            <h3>6. Logistic Regression</h3>
+            <p>
+                Estimates the probability of a category and is
+                commonly used for classification tasks.
+            </p>
+            <p><strong>Example:</strong> Predicting customer churn.</p>
+            <span class="tag">Classification</span>
+        </article>
+
+    </div>
+
+    <section class="example">
+        <h2>How Does Machine Learning Work?</h2>
+        <p>
+            Example: teaching a model to predict house prices.
+            Follow the main stages below.
+        </p>
+
+        <div class="flow">
+            <div class="flow-item">
+                <strong>01. Collect Data</strong>
+                Gather house sizes and previous prices.
+            </div>
+
+            <div class="flow-item">
+                <strong>02. Train Model</strong>
+                The algorithm learns patterns in the data.
+            </div>
+
+            <div class="flow-item">
+                <strong>03. Test Model</strong>
+                Check predictions on data not used for training.
+            </div>
+
+            <div class="flow-item">
+                <strong>04. Predict</strong>
+                Estimate the price of a new house.
+            </div>
+        </div>
+    </section>
+
+    <section class="example">
+        <h2>Quick ML Knowledge Quiz</h2>
+        <p>
+            Which algorithm is commonly used to group similar
+            customers without predefined labels?
+        </p>
+
+        <div style="margin-top:15px">
+            <button class="button secondary"
+                onclick="checkAnswer(false)">
+                Linear Regression
+            </button>
+
+            <button class="button secondary"
+                onclick="checkAnswer(true)">
+                K-Means Clustering
+            </button>
+
+            <button class="button secondary"
+                onclick="checkAnswer(false)">
+                Logistic Regression
+            </button>
+        </div>
+
+        <p id="result" aria-live="polite"></p>
+    </section>
+
+    <div class="navigation">
+        <a href="types.html" class="button secondary">
+            ← Previous: Types of ML
+        </a>
+
+        <a href="applications.html" class="button">
+            Next: ML Applications →
+        </a>
+    </div>
+
+</main>
+
+<footer>
+    <p>ML WORLD ✦ Learn Today, Build Tomorrow</p>
+</footer>
+
+<script>
+function checkAnswer(correct) {
+    const result = document.getElementById("result");
+
+    if (correct) {
+        result.textContent =
+            "Correct! K-Means groups similar data points together.";
+        result.style.color = "#70f0a0";
+    } else {
+        result.textContent =
+            "Try again! Think about the algorithm used for grouping data.";
+        result.style.color = "#ffb7a9";
+    }
+}
+</script>
+
+</body>
+</html>

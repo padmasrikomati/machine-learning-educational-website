@@ -1,0 +1,707 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Types of Machine Learning | ML WORLD</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080d1b;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            border-bottom: 1px solid #263650;
+        }
+
+        .logo {
+            color: #55e6ff;
+            font-size: 23px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: #55e6ff;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 65px 0 35px;
+        }
+
+        .tag {
+            color: #55e6ff;
+            font-size: 12px;
+            letter-spacing: 4px;
+        }
+
+        h1 {
+            font-size: clamp(35px, 6vw, 60px);
+            line-height: 1.2;
+            margin: 18px 0;
+        }
+
+        h1 span {
+            color: #55e6ff;
+        }
+
+        .intro {
+            color: #aab8d0;
+            max-width: 680px;
+            margin: auto;
+        }
+
+        /* Learning type cards */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin: 35px 0 55px;
+        }
+
+        .card {
+            background: #111a2d;
+            border: 1px solid #263650;
+            border-radius: 18px;
+            padding: 25px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #55e6ff;
+            box-shadow: 0 10px 35px #55e6ff18;
+        }
+
+        .number {
+            color: #71819e;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .icon {
+            font-size: 42px;
+            margin: 12px 0;
+        }
+
+        .card h2 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #b2bfd5;
+            font-size: 14px;
+        }
+
+        .card h3 {
+            font-size: 14px;
+            margin: 20px 0 8px;
+            color: #ffffff;
+        }
+
+        .label {
+            display: inline-block;
+            padding: 6px 11px;
+            border-radius: 20px;
+            background: #1e2c44;
+            color: #c9d9f2;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+
+        .supervised {
+            border-top: 3px solid #55e6ff;
+        }
+
+        .unsupervised {
+            border-top: 3px solid #b99aff;
+        }
+
+        .reinforcement {
+            border-top: 3px solid #54e5a5;
+        }
+
+        .supervised h2 {
+            color: #55e6ff;
+        }
+
+        .unsupervised h2 {
+            color: #b99aff;
+        }
+
+        .reinforcement h2 {
+            color: #54e5a5;
+        }
+
+        /* Diagram section */
+
+        .diagram-section {
+            background: #111a2d;
+            border: 1px solid #263650;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .diagram-section h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .diagram-section > p {
+            color: #aab8d0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .diagram {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .diagram-box {
+            background: #172641;
+            border: 1px solid #345070;
+            padding: 20px 12px;
+            text-align: center;
+            border-radius: 14px;
+        }
+
+        .diagram-box .symbol {
+            font-size: 35px;
+            margin-bottom: 8px;
+        }
+
+        .diagram-box h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .diagram-box p {
+            font-size: 13px;
+            color: #aab8d0;
+        }
+
+        .arrow {
+            color: #55e6ff;
+            font-size: 25px;
+            margin: 8px 0;
+        }
+
+        /* Comparison table */
+
+        .comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison th,
+        .comparison td {
+            padding: 15px;
+            border-bottom: 1px solid #263650;
+            text-align: left;
+        }
+
+        .comparison th {
+            color: #55e6ff;
+            background: #172641;
+        }
+
+        .comparison td {
+            color: #c0cde0;
+            font-size: 14px;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        /* Navigation buttons */
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 35px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+            background: #55e6ff;
+            color: #08111f;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .btn.secondary {
+            color: #55e6ff;
+            background: #111a2d;
+            border: 1px solid #345070;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #263650;
+            color: #71819e;
+            font-size: 13px;
+        }
+
+        @media (max-width: 850px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .diagram {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            nav {
+                padding: 18px 5%;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .diagram-section {
+                padding: 18px;
+            }
+
+            .comparison th,
+            .comparison td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">ML WORLD</div>
+        <a href="index.html">⌂ Home</a>
+        <a href="playground.html">Playground</a>
+    </nav>
+
+    <main class="container">
+
+        <section class="hero">
+            <p class="tag">CHAPTER 02 · LEARNING METHODS</p>
+
+            <h1>Types of <span>Machine Learning</span></h1>
+
+            <p class="intro">
+                Not every machine learns in the same way.
+                Explore three major learning approaches and
+                discover how they solve different problems.
+            </p>
+        </section>
+
+        <section class="cards">
+
+            <!-- Supervised Learning -->
+
+            <article class="card supervised">
+                <p class="number">01 / LEARN WITH ANSWERS</p>
+
+                <div class="icon">🎓</div>
+
+                <h2>Supervised Learning</h2>
+
+                <p>
+                    The model learns from labeled data.
+                    Each training example contains input data
+                    and its correct answer.
+                </p>
+
+                <h3>Visual example</h3>
+
+                <svg viewBox="0 0 280 115"
+                     width="100%"
+                     role="img"
+                     aria-label="Labeled cat and dog examples used to train a supervised learning model">
+
+                    <rect x="5" y="5" width="78" height="75"
+                          rx="10" fill="#1e3851"
+                          stroke="#55e6ff"/>
+
+                    <text x="44" y="36" text-anchor="middle"
+                          font-size="25">🐱</text>
+
+                    <text x="44" y="62" text-anchor="middle"
+                          font-size="12" fill="#55e6ff">CAT</text>
+
+                    <path d="M90 42 H112 M105 35 L112 42 L105 49"
+                          stroke="#55e6ff" stroke-width="2"
+                          fill="none"/>
+
+                    <rect x="120" y="5" width="78" height="75"
+                          rx="10" fill="#1e3851"
+                          stroke="#55e6ff"/>
+
+                    <text x="159" y="36" text-anchor="middle"
+                          font-size="25">🐶</text>
+
+                    <text x="159" y="62" text-anchor="middle"
+                          font-size="12" fill="#55e6ff">DOG</text>
+
+                    <path d="M205 42 H225 M218 35 L225 42 L218 49"
+                          stroke="#55e6ff" stroke-width="2"
+                          fill="none"/>
+
+                    <circle cx="248" cy="42" r="19"
+                            fill="#55e6ff" opacity="0.2"
+                            stroke="#55e6ff"/>
+
+                    <text x="248" y="48" text-anchor="middle"
+                          font-size="18" fill="#ffffff">✓</text>
+
+                    <text x="140" y="103" text-anchor="middle"
+                          font-size="11" fill="#b2bfd5">
+                        Examples with known answers
+                    </text>
+                </svg>
+
+                <h3>Real-world example</h3>
+
+                <p>
+                    Predicting house prices using past house
+                    prices, sizes, and locations.
+                </p>
+
+                <span class="label">Regression · Classification</span>
+            </article>
+
+            <!-- Unsupervised Learning -->
+
+            <article class="card unsupervised">
+                <p class="number">02 / DISCOVER PATTERNS</p>
+
+                <div class="icon">🔍</div>
+
+                <h2>Unsupervised Learning</h2>
+
+                <p>
+                    The model learns from unlabeled data.
+                    It discovers hidden patterns or groups
+                    without being given the correct answers.
+                </p>
+
+                <h3>Visual example</h3>
+
+                <svg viewBox="0 0 280 115"
+                     width="100%"
+                     role="img"
+                     aria-label="Unlabeled data points grouped into clusters">
+
+                    <ellipse cx="68" cy="43" rx="42" ry="32"
+                             fill="#b99aff" opacity="0.12"
+                             stroke="#b99aff"
+                             stroke-dasharray="4 4"/>
+
+                    <ellipse cx="207" cy="62" rx="48" ry="35"
+                             fill="#55e6ff" opacity="0.12"
+                             stroke="#55e6ff"
+                             stroke-dasharray="4 4"/>
+
+                    <g fill="#b99aff">
+                        <circle cx="43" cy="34" r="5"/>
+                        <circle cx="64" cy="23" r="5"/>
+                        <circle cx="81" cy="45" r="5"/>
+                        <circle cx="53" cy="58" r="5"/>
+                        <circle cx="77" cy="64" r="5"/>
+                    </g>
+
+                    <g fill="#55e6ff">
+                        <circle cx="184" cy="48" r="5"/>
+                        <circle cx="206" cy="37" r="5"/>
+                        <circle cx="226" cy="54" r="5"/>
+                        <circle cx="193" cy="75" r="5"/>
+                        <circle cx="221" cy="80" r="5"/>
+                    </g>
+
+                    <text x="140" y="107" text-anchor="middle"
+                          font-size="11" fill="#b2bfd5">
+                        Similar data points form groups
+                    </text>
+                </svg>
+
+                <h3>Real-world example</h3>
+
+                <p>
+                    Grouping customers according to their
+                    shopping habits.
+                </p>
+
+                <span class="label">Clustering · Pattern Discovery</span>
+            </article>
+
+            <!-- Reinforcement Learning -->
+
+            <article class="card reinforcement">
+                <p class="number">03 / LEARN THROUGH FEEDBACK</p>
+
+                <div class="icon">🎮</div>
+
+                <h2>Reinforcement Learning</h2>
+
+                <p>
+                    An agent learns by taking actions and
+                    receiving rewards or penalties from
+                    its environment.
+                </p>
+
+                <h3>Visual example</h3>
+
+                <svg viewBox="0 0 280 115"
+                     width="100%"
+                     role="img"
+                     aria-label="Reinforcement learning cycle between agent, environment and reward">
+
+                    <rect x="8" y="18" width="92" height="46"
+                          rx="10" fill="#173e37"
+                          stroke="#54e5a5"/>
+
+                    <text x="54" y="37" text-anchor="middle"
+                          font-size="12" fill="#54e5a5">AGENT</text>
+
+                    <text x="54" y="52" text-anchor="middle"
+                          font-size="10" fill="#ffffff">Takes action</text>
+
+                    <path d="M105 41 H165 M157 34 L165 41 L157 48"
+                          stroke="#54e5a5" stroke-width="2"
+                          fill="none"/>
+
+                    <rect x="171" y="18" width="101" height="46"
+                          rx="10" fill="#173e37"
+                          stroke="#54e5a5"/>
+
+                    <text x="221" y="37" text-anchor="middle"
+                          font-size="11" fill="#54e5a5">ENVIRONMENT</text>
+
+                    <text x="221" y="52" text-anchor="middle"
+                          font-size="10" fill="#ffffff">Gives feedback</text>
+
+                    <path d="M221 69 V83 H54 V69"
+                          stroke="#54e5a5" stroke-width="2"
+                          fill="none"/>
+
+                    <path d="M47 76 L54 69 L61 76"
+                          stroke="#54e5a5" stroke-width="2"
+                          fill="none"/>
+
+                    <text x="137" y="101" text-anchor="middle"
+                          font-size="11" fill="#54e5a5">
+                        Reward or penalty
+                    </text>
+                </svg>
+
+                <h3>Real-world example</h3>
+
+                <p>
+                    Training a game-playing agent to choose
+                    actions that increase its score.
+                </p>
+
+                <span class="label">Agent · Actions · Rewards</span>
+            </article>
+
+        </section>
+
+        <section class="diagram-section">
+            <h2>See the Difference</h2>
+
+            <p>
+                Compare how each approach learns from data.
+            </p>
+
+            <div class="diagram">
+
+                <div class="diagram-box">
+                    <div class="symbol">📘</div>
+                    <h3 style="color:#55e6ff;">Supervised</h3>
+                    <div class="arrow">↓</div>
+                    <p>Labeled data</p>
+                    <div class="arrow">↓</div>
+                    <p>Learn correct answers</p>
+                    <div class="arrow">↓</div>
+                    <p>Predict an outcome</p>
+                </div>
+
+                <div class="diagram-box">
+                    <div class="symbol">🧩</div>
+                    <h3 style="color:#b99aff;">Unsupervised</h3>
+                    <div class="arrow">↓</div>
+                    <p>Unlabeled data</p>
+                    <div class="arrow">↓</div>
+                    <p>Discover patterns</p>
+                    <div class="arrow">↓</div>
+                    <p>Find groups or structure</p>
+                </div>
+
+                <div class="diagram-box">
+                    <div class="symbol">🏆</div>
+                    <h3 style="color:#54e5a5;">Reinforcement</h3>
+                    <div class="arrow">↓</div>
+                    <p>Take an action</p>
+                    <div class="arrow">↓</div>
+                    <p>Receive feedback</p>
+                    <div class="arrow">↓</div>
+                    <p>Improve future actions</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="diagram-section">
+            <h2>Quick Comparison</h2>
+
+            <div class="table-wrap">
+                <table class="comparison">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Supervised</th>
+                            <th>Unsupervised</th>
+                            <th>Reinforcement</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Learning data</td>
+                            <td>Labeled</td>
+                            <td>Unlabeled</td>
+                            <td>Experience</td>
+                        </tr>
+
+                        <tr>
+                            <td>Main goal</td>
+                            <td>Predict</td>
+                            <td>Find patterns</td>
+                            <td>Choose actions</td>
+                        </tr>
+
+                        <tr>
+                            <td>Feedback</td>
+                            <td>Correct answers</td>
+                            <td>Patterns in data</td>
+                            <td>Rewards or penalties</td>
+                        </tr>
+
+                        <tr>
+                            <td>Example</td>
+                            <td>House prices</td>
+                            <td>Customer groups</td>
+                            <td>Game-playing agent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="diagram-section">
+            <h2>Knowledge Check 🧠</h2>
+
+            <p>
+                A computer groups customers based on their
+                shopping habits without given categories.
+                Which learning type is this?
+            </p>
+
+            <div class="diagram">
+                <button class="btn" onclick="checkAnswer('supervised')">
+                    Supervised
+                </button>
+
+                <button class="btn" onclick="checkAnswer('unsupervised')">
+                    Unsupervised
+                </button>
+
+                <button class="btn" onclick="checkAnswer('reinforcement')">
+                    Reinforcement
+                </button>
+            </div>
+
+            <p id="feedback"
+               aria-live="polite"
+               style="text-align:center; margin-top:20px;">
+            </p>
+        </section>
+
+        <div class="buttons">
+            <a href="basics.html" class="btn secondary">
+                ← Previous: ML Basics
+            </a>
+
+            <a href="index.html" class="btn">
+                Back to ML WORLD Home →
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        ML WORLD · LEARN. EXPLORE. DISCOVER.
+    </footer>
+
+    <script>
+        function checkAnswer(answer) {
+            const feedback = document.getElementById("feedback");
+
+            if (answer === "unsupervised") {
+                feedback.textContent =
+                    "Correct! 🎉 Unsupervised Learning discovers patterns in unlabeled data.";
+                feedback.style.color = "#54e5a5";
+            } else {
+                feedback.textContent =
+                    "Not quite! Think about which approach discovers groups without labeled answers.";
+                feedback.style.color = "#ffb86b";
+            }
+        }
+    </script>
+
+</body>
+</html>

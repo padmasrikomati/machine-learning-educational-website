@@ -1,0 +1,506 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications of Machine Learning | ML World</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #07111f;
+            color: #e5edf7;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #0b192b;
+            padding: 20px 7%;
+            border-bottom: 1px solid #1e3852;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            color: #22d3ee;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #d5e4f5;
+            text-decoration: none;
+            margin: 0 7px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #22d3ee;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 75px 8% 65px;
+            background: linear-gradient(135deg, #0b192b, #102c46);
+        }
+
+        .tag {
+            display: inline-block;
+            color: #22d3ee;
+            border: 1px solid #22d3ee;
+            border-radius: 25px;
+            padding: 5px 15px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            color: #22d3ee;
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 780px;
+            margin: auto;
+            color: #c5d5e7;
+            font-size: 17px;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1200px;
+            margin: 45px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #22d3ee;
+            font-size: 29px;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            text-align: center;
+            color: #b8c8da;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .intro-box {
+            background: #10243a;
+            border: 1px solid #25415c;
+            border-left: 4px solid #22d3ee;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 45px;
+        }
+
+        .intro-box h2 {
+            color: #22d3ee;
+            margin-bottom: 10px;
+        }
+
+        .applications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #10243a;
+            border: 1px solid #25415c;
+            border-radius: 14px;
+            padding: 24px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #22d3ee;
+        }
+
+        .emoji {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #22d3ee;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #c5d5e7;
+        }
+
+        .example {
+            margin-top: 45px;
+            background: #0d2034;
+            border: 1px solid #25415c;
+            border-radius: 14px;
+            padding: 28px;
+        }
+
+        .example h2 {
+            color: #22d3ee;
+            margin-bottom: 12px;
+        }
+
+        .example li {
+            margin: 10px 0 10px 22px;
+            color: #c5d5e7;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .benefit {
+            background: #10243a;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #25415c;
+        }
+
+        .benefit h3 {
+            color: #22d3ee;
+            margin-bottom: 8px;
+        }
+
+        .quiz {
+            background: #10243a;
+            border: 1px solid #25415c;
+            padding: 28px;
+            border-radius: 14px;
+            margin-top: 45px;
+        }
+
+        .quiz h2 {
+            color: #22d3ee;
+            margin-bottom: 15px;
+        }
+
+        .quiz label {
+            display: block;
+            margin: 12px 0;
+            cursor: pointer;
+        }
+
+        .quiz button {
+            background: #22d3ee;
+            color: #07111f;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        .quiz button:hover {
+            background: #67e8f9;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            background: #0b192b;
+            border-top: 1px solid #1e3852;
+            color: #9eb1c7;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">ML WORLD</div>
+
+            <div>
+                <a href="index.html">Home</a>
+                <a href="basic.html">Basics</a>
+                <a href="types.html">Types</a>
+                <a href="algorithms.html">Algorithms</a>
+                <a href="model-building.html">Model Building</a>
+                <a href="applications.html">Applications</a>
+            </div>
+            <a href="playground.html">Playground</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <span class="tag">MACHINE LEARNING IN ACTION</span>
+        <h1>Applications of Machine Learning</h1>
+        <p>
+            Discover how Machine Learning helps solve real-world problems
+            and makes everyday activities smarter, faster, and easier.
+        </p>
+    </section>
+
+    <main class="container">
+
+        <section class="intro-box">
+            <h2>What Are the Applications of Machine Learning?</h2>
+            <p>
+                Machine Learning is used in many industries to analyze data,
+                identify patterns, make predictions, and support decisions.
+                It is used in healthcare, banking, education, agriculture,
+                transportation, online shopping, and many other fields.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Where Is Machine Learning Used?</h2>
+
+            <p class="section-intro">
+                Explore eight important areas where Machine Learning
+                is used in real life.
+            </p>
+
+            <div class="applications">
+
+                <div class="card">
+                    <div class="emoji">🏥</div>
+                    <h3>1. Healthcare</h3>
+                    <p>
+                        Machine Learning can help analyze medical images,
+                        identify health risks, support disease detection,
+                        and assist doctors in making decisions.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🏦</div>
+                    <h3>2. Banking and Finance</h3>
+                    <p>
+                        Banks use Machine Learning to detect unusual
+                        transactions, identify possible fraud, assess
+                        financial risks, and support credit decisions.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🛒</div>
+                    <h3>3. Online Shopping</h3>
+                    <p>
+                        Shopping platforms recommend products based on
+                        browsing history, previous purchases, and customer
+                        interests.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🚗</div>
+                    <h3>4. Transportation</h3>
+                    <p>
+                        Machine Learning helps estimate arrival times,
+                        predict traffic conditions, optimize routes,
+                        and support driver-assistance systems.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🌾</div>
+                    <h3>5. Agriculture</h3>
+                    <p>
+                        Farmers can use Machine Learning to monitor crops,
+                        estimate crop yields, detect plant diseases,
+                        and improve the use of water and fertilizers.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🎓</div>
+                    <h3>6. Education</h3>
+                    <p>
+                        Learning platforms can recommend study materials,
+                        personalize lessons, and identify topics where
+                        students may need additional support.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">📱</div>
+                    <h3>7. Smartphones</h3>
+                    <p>
+                        Smartphones use Machine Learning for face
+                        recognition, voice assistants, keyboard suggestions,
+                        photo improvements, and spam detection.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🎬</div>
+                    <h3>8. Entertainment</h3>
+                    <p>
+                        Streaming platforms recommend movies, music,
+                        and videos based on viewing history and
+                        user preferences.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="example">
+            <h2>Real-Life Example: Movie Recommendations</h2>
+
+            <p>
+                When you watch movies on a streaming platform, it may
+                recommend other movies you might enjoy. Machine Learning
+                can study viewing history, ratings, and similarities
+                between users or movies to generate recommendations.
+            </p>
+
+            <ul>
+                <li><strong>Input:</strong> Your viewing history and ratings.</li>
+                <li><strong>Learning:</strong> The system identifies patterns in your interests.</li>
+                <li><strong>Output:</strong> A list of movies you may like.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">Benefits of Machine Learning</h2>
+
+            <p class="section-intro">
+                Machine Learning offers several benefits when it is
+                designed and used correctly.
+            </p>
+
+            <div class="benefits">
+                <div class="benefit">
+                    <h3>Automation</h3>
+                    <p>Helps perform repetitive tasks with less manual effort.</p>
+                </div>
+
+                <div class="benefit">
+                    <h3>Better Predictions</h3>
+                    <p>Finds patterns in data to estimate future outcomes.</p>
+                </div>
+
+                <div class="benefit">
+                    <h3>Personalization</h3>
+                    <p>Provides recommendations based on user preferences.</p>
+                </div>
+
+                <div class="benefit">
+                    <h3>Data Analysis</h3>
+                    <p>Helps analyze large amounts of data more efficiently.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="example">
+            <h2>Challenges to Remember</h2>
+            <p>
+                Machine Learning is useful, but it also has limitations.
+                Poor-quality data can lead to incorrect predictions.
+                Models may also produce biased results, raise privacy
+                concerns, or require significant computing resources.
+                Human supervision is important in many applications.
+            </p>
+        </section>
+
+        <section class="quiz">
+            <h2>Test Your Knowledge</h2>
+
+            <p>
+                <strong>
+                    Which of the following is an application of Machine Learning?
+                </strong>
+            </p>
+
+            <form id="quizForm">
+                <label>
+                    <input type="radio" name="answer" value="a">
+                    A. Detecting fraudulent bank transactions
+                </label>
+
+                <label>
+                    <input type="radio" name="answer" value="b">
+                    B. Arranging books on a shelf manually
+                </label>
+
+                <label>
+                    <input type="radio" name="answer" value="c">
+                    C. Switching off a light using a normal switch
+                </label>
+
+                <button type="button" onclick="checkAnswer()">Check Answer</button>
+
+                <p id="result"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>ML WORLD | Explore the World of Machine Learning</p>
+    </footer>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.querySelector(
+                'input[name="answer"]:checked'
+            );
+
+            const result = document.getElementById("result");
+
+            if (!answer) {
+                result.textContent = "Please select an answer first.";
+                result.style.color = "#facc15";
+                return;
+            }
+
+            if (answer.value === "a") {
+                result.textContent =
+                    "Correct! Machine Learning can help banks detect possible fraudulent transactions.";
+                result.style.color = "#4ade80";
+            } else {
+                result.textContent =
+                    "Try again! Think about how computers can learn patterns from transaction data.";
+                result.style.color = "#fb7185";
+            }
+        }
+    </script>
+
+</body>
+</html>
+```

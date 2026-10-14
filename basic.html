@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Basics | ML WORLD</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080d1b;
+            color: white;
+            line-height: 1.7;
+        }
+
+        nav {
+            padding: 22px 8%;
+            border-bottom: 1px solid #263650;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #55e6ff;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #55e6ff;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 65px 0 40px;
+        }
+
+        .tag {
+            color: #55e6ff;
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 55px);
+            margin: 15px 0;
+        }
+
+        h1 span {
+            color: #55e6ff;
+        }
+
+        .subtitle {
+            color: #aab8d0;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .card {
+            background: #111a2d;
+            border: 1px solid #263650;
+            border-radius: 18px;
+            padding: 28px;
+            margin: 22px 0;
+        }
+
+        h2 {
+            color: #55e6ff;
+            margin-bottom: 14px;
+        }
+
+        .flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .step {
+            background: #172641;
+            border: 1px solid #345070;
+            padding: 18px 10px;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        .symbol {
+            font-size: 30px;
+        }
+
+        .step h3 {
+            color: #8feaff;
+            font-size: 16px;
+        }
+
+        .step p {
+            color: #aab8d0;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .example {
+            border-left: 4px solid #55e6ff;
+            padding: 18px;
+            background: #172641;
+            border-radius: 8px;
+            margin-top: 18px;
+        }
+
+        .example p {
+            margin: 8px 0;
+        }
+
+        .next {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 13px 22px;
+            background: #55e6ff;
+            color: #08111f;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #71819e;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                width: 92%;
+            }
+
+            .flow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">ML WORLD</div>
+        <a href="index.html">← Home</a>
+        <a href="playground.html">Playground</a>
+    </nav>
+
+    <main class="container">
+
+        <section class="intro">
+            <p class="tag">CHAPTER 01 · THE FUNDAMENTALS</p>
+
+            <h1>What is <span>Machine Learning?</span></h1>
+
+            <p class="subtitle">
+                Let's understand how computers learn from data
+                and use that learning to make predictions.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>01. What is Machine Learning?</h2>
+
+            <p>
+                Machine Learning is a branch of Artificial Intelligence
+                that allows computers to learn patterns from data and
+                make predictions or decisions without being explicitly
+                programmed with every rule.
+            </p>
+
+            <div class="example">
+                <strong>Simple example: Cat and Dog Recognition</strong>
+                <p>
+                    When we show a computer many pictures of cats and dogs,
+                    a machine learning model can learn patterns in those
+                    pictures and help classify a new picture.
+                </p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>02. How Does Machine Learning Work?</h2>
+
+            <p>Explore the four basic stages of Machine Learning.</p>
+
+            <div class="flow">
+
+                <div class="step">
+                    <div class="symbol">📊</div>
+                    <h3>1. Data</h3>
+                    <p>Collect examples for learning.</p>
+                </div>
+
+                <div class="step">
+                    <div class="symbol">⚙️</div>
+                    <h3>2. Training</h3>
+                    <p>The algorithm learns patterns.</p>
+                </div>
+
+                <div class="step">
+                    <div class="symbol">🧠</div>
+                    <h3>3. Model</h3>
+                    <p>The trained model captures patterns.</p>
+                </div>
+
+                <div class="step">
+                    <div class="symbol">🎯</div>
+                    <h3>4. Prediction</h3>
+                    <p>Use the model on new data.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>03. Real-World Applications</h2>
+
+            <div class="example">
+                <p>📧 <strong>Email:</strong> Detecting spam messages.</p>
+                <p>🎬 <strong>Entertainment:</strong> Recommending movies.</p>
+                <p>🏦 <strong>Banking:</strong> Identifying unusual transactions.</p>
+                <p>🏠 <strong>Real Estate:</strong> Estimating house prices.</p>
+                <p>🛍️ <strong>Shopping:</strong> Recommending products.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Ready for the Next Chapter?</h2>
+
+            <p>
+                Now that you understand the basics, let's explore
+                the three main types of Machine Learning.
+            </p>
+
+            <a href="types.html" class="next">
+                Explore Types of ML →
+            </a>
+        </section>
+
+        <p style="margin: 25px 0;">
+            <a href="index.html" style="color:#55e6ff; text-decoration:none;">
+                ← Back to Home
+            </a>
+        </p>
+
+    </main>
+
+    <footer>
+        ML WORLD · LEARN. EXPLORE. DISCOVER.
+    </footer>
+
+</body>
+</html>
